@@ -1,10 +1,11 @@
 import React from 'react'
 import './App.scss'
+import Profiles from './Profiles/Profiles'
 
 function App() {
 
   return (
-    <h1>HEllo World</h1>
+    <Profiles/>
   )
 }
 
