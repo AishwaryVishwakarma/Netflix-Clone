@@ -11,4 +11,7 @@ const Card = ({url, name}) => {
 }
 
 export default Card;
+<<<<<<< HEAD
  
+=======
+>>>>>>> ce1dfe782dbcbd0fd517fd8c6fd07ca68dd4f379
