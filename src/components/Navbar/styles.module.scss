@@ -11,7 +11,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  transition: background 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   user-select: none;
 
   .logo {
@@ -36,7 +36,7 @@
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 23px;
 
     .searchIcon {
       color: inherit;
@@ -47,7 +47,7 @@
 
     & > p {
       font-family: inherit;
-      font-size: 16.5px;
+      font-size: 14.5px;
       cursor: pointer;
     }
 

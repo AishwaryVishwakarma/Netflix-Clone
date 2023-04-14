@@ -3,6 +3,16 @@ import styles from './styles.module.scss'
 import Navbar from '../../components/Navbar/Navbar'
 
 const HomePage = () => {
+  const prevTitle = React.useRef(document.title)
+
+  React.useEffect(() => {
+    document.title = 'Home - Netflix'
+
+    return () => {
+      document.title = prevTitle.current
+    }
+  }, [])
+
   return (
     <>
       <Navbar />

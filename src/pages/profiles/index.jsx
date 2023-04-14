@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import ProfileCard from '../../components/Profiles/ProfileCard/ProfileCard'
+import { Link } from 'react-router-dom'
 
 const DUMMY_PROFILES = [
   { url: 'https://i.postimg.cc/2jG0Z8zv/blue.jpg', name: 'Dipayan' },
@@ -15,7 +16,9 @@ const ProfilesPage = () => {
         <div className={styles.headerText}>Who's watching?</div>
         <div className={styles.profilesContainer}>
           {DUMMY_PROFILES.map((element, idx) => (
-            <ProfileCard key={idx} url={element.url} name={element.name} />
+            <Link to="/home" key={idx}>
+              <ProfileCard url={element.url} name={element.name} />
+            </Link>
           ))}
         </div>
         <div className={styles.manageProfilesBox}>

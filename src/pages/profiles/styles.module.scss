@@ -20,6 +20,11 @@
   .profilesContainer {
     display: flex;
     gap: 50px;
+
+    & > a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
   .manageProfilesBox {
