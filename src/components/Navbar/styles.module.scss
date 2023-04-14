@@ -1,0 +1,83 @@
+.bgDark {
+  background: var(--bg-dark);
+}
+
+.navbar {
+  color: white;
+  padding: 18px 57px;
+  display: flex;
+  align-items: center;
+  font-family: Ubuntu;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: background 0.3s ease-in-out;
+  user-select: none;
+
+  .logo {
+    height: 30px;
+    width: 98px;
+    cursor: pointer;
+  }
+
+  & > ul {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+    margin-left: 45px;
+    font-size: 14.5px;
+
+    li {
+      cursor: pointer;
+    }
+  }
+
+  .rightContainer {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    .searchIcon {
+      color: inherit;
+      font-size: 28px;
+      transform: rotate(-15deg);
+      cursor: pointer;
+    }
+
+    & > p {
+      font-family: inherit;
+      font-size: 16.5px;
+      cursor: pointer;
+    }
+
+    .bellIcon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .profileDropdown {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+
+      img {
+        height: 32px;
+        width: auto;
+        border-radius: 4px;
+      }
+
+      .caret {
+        font-size: 12px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &:hover {
+        .caret {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-const Card = ({url, name}) => {
+const ProfileCard = ({url, name}) => {
   return (
     <div className={styles.boxWrapper}>
       <img src={url} alt="image" />
@@ -10,4 +10,4 @@ const Card = ({url, name}) => {
   )
 }
 
-export default Card;
+export default ProfileCard;

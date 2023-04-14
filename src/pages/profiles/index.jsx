@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import Card from './Card/Card'
+import ProfileCard from '../../components/Profiles/ProfileCard/ProfileCard'
 
 const DUMMY_PROFILES = [
   { url: 'https://i.postimg.cc/2jG0Z8zv/blue.jpg', name: 'Dipayan' },
@@ -8,14 +8,14 @@ const DUMMY_PROFILES = [
   { url: 'https://i.postimg.cc/L50PHWjC/yellow.jpg', name: 'Shuvo' }
 ]
 
-const Profiles = () => {
+const ProfilesPage = () => {
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.headerText}>Who's watching?</div>
         <div className={styles.profilesContainer}>
           {DUMMY_PROFILES.map((element, idx) => (
-            <Card key={idx} url={element.url} name={element.name} />
+            <ProfileCard key={idx} url={element.url} name={element.name} />
           ))}
         </div>
         <div className={styles.manageProfilesBox}>
@@ -26,4 +26,4 @@ const Profiles = () => {
   )
 }
 
-export default Profiles
+export default ProfilesPage
