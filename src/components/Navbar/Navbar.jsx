@@ -1,7 +1,16 @@
 import React, { useEffect } from 'react'
 import styles from './styles.module.scss'
-import { AiOutlineSearch, AiFillCaretDown } from 'react-icons/ai'
+import {
+  AiOutlineSearch,
+  AiFillCaretDown,
+  AiFillCaretUp,
+  AiOutlineEdit,
+  AiOutlineProfile
+} from 'react-icons/ai'
 import { FaRegBell } from 'react-icons/fa'
+import { MdOutlineAccountCircle } from 'react-icons/md'
+import { BiHelpCircle } from 'react-icons/bi'
+import { DUMMY_PROFILES } from '../../pages/profiles'
 
 const TABS = [
   'Home',
@@ -10,6 +19,25 @@ const TABS = [
   'News & Popular',
   'My List',
   'Browse by Languages'
+]
+
+const DROPDOWN_ITEMS = [
+  {
+    element: <AiOutlineEdit className={styles.utilityIcons} />,
+    description: 'Manage Profiles'
+  },
+  {
+    element: <AiOutlineProfile className={styles.utilityIcons} />,
+    description: 'Transfer Profile'
+  },
+  {
+    element: <MdOutlineAccountCircle className={styles.utilityIcons} />,
+    description: 'Account'
+  },
+  {
+    element: <BiHelpCircle className={styles.utilityIcons} />,
+    description: 'Help Center'
+  }
 ]
 
 const Navbar = () => {
@@ -46,9 +74,29 @@ const Navbar = () => {
         <AiOutlineSearch className={styles.searchIcon} />
         <p>Children</p>
         <FaRegBell className={styles.bellIcon} />
-        <div className={styles.profileDropdown}>
+        <div className={styles.profileWrapper}>
           <img src="https://i.postimg.cc/yYNvX4dG/red.jpg" alt="" />
           <AiFillCaretDown className={styles.caret} />
+          <div className={styles.dropdownWrapper}>
+            <div className={styles.profileDropdown}>
+              <div className={styles.itemsContainer}>
+                {DUMMY_PROFILES.map((profile, idx) => (
+                  <div key={idx} className={styles.profiles}>
+                    <img src={profile.url} alt="" />
+                    <p>{profile.name}</p>
+                  </div>
+                ))}
+                {DROPDOWN_ITEMS.map((item, idx) => (
+                  <div key={idx} className={styles.utilityItems}>
+                    {item.element}
+                    <p>{item.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.signOut}>Sign out of Netflix</div>
+              <AiFillCaretUp className={styles.dropdownCaret} />
+            </div>
+          </div>
         </div>
       </div>
     </nav>

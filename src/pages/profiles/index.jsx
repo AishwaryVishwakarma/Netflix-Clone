@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import ProfileCard from '../../components/Profiles/ProfileCard/ProfileCard'
 import { Link } from 'react-router-dom'
 
-const DUMMY_PROFILES = [
+export const DUMMY_PROFILES = [
   { url: 'https://i.postimg.cc/2jG0Z8zv/blue.jpg', name: 'Dipayan' },
   { url: 'https://i.postimg.cc/yYNvX4dG/red.jpg', name: 'Rishi' },
   { url: 'https://i.postimg.cc/L50PHWjC/yellow.jpg', name: 'Shuvo' }
