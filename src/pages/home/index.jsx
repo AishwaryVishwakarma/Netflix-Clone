@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import Navbar from '../../components/Navbar/Navbar'
-import PopularMovies from '../../components/Home/PopularMovies/PopularMovies'
+import PopularMovies from '../../components/Home/Popular-Movies/PopularMovies'
 
 const HomePage = () => {
   const prevTitle = React.useRef(document.title)
