@@ -1,11 +1,13 @@
 import React from "react";
 
 
-const MovieCard=()=>{
+const PopularMovies
+=()=>{
     return (<div>hello world</div>)
 
 
 
 };
 
-export default MovieCard;
+export default PopularMovies
+;
