@@ -29,7 +29,11 @@
 
     li {
       cursor: pointer;
+      &:hover{
+        color: #5b5b5b;
+      }
     }
+    
   }
 
   .rightContainer {
