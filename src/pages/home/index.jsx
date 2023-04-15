@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import Navbar from '../../components/Navbar/Navbar'
 import PopularMovies from '../../components/Home/Popular-Movies/PopularMovies'
+import Footer from '../../components/Footer/Footer'
 
 const HomePage = () => {
   const prevTitle = React.useRef(document.title)
@@ -18,9 +19,14 @@ const HomePage = () => {
     <>
       <Navbar />
       <div className={styles.container}>
-      <img className={styles.startImage} src="https://cdn.wallpapersafari.com/87/72/2j1nqe.jpg" alt="" />
-      <PopularMovies/>
+        <img
+          className={styles.startImage}
+          src="https://cdn.wallpapersafari.com/87/72/2j1nqe.jpg"
+          alt=""
+        />
+        <PopularMovies />
       </div>
+      <Footer />
     </>
   )
 }
