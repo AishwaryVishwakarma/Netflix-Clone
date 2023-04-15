@@ -8,9 +8,7 @@ const PopularMovies = () => {
 
   React.useEffect(() => {
     axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US`
-      )
+      .get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`)
       .then((res) => setMovies(res.data.results))
       .catch((err) => console.log(err))
   }, [])
