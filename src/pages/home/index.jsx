@@ -17,8 +17,10 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <img src="https://cdn.wallpapersafari.com/87/72/2j1nqe.jpg" alt="" />
+      <div className={styles.container}>
+      <img className={styles.startImage} src="https://cdn.wallpapersafari.com/87/72/2j1nqe.jpg" alt="" />
       <PopularMovies/>
+      </div>
     </>
   )
 }
