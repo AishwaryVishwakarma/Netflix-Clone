@@ -27,7 +27,7 @@ const PopularMovies = () => {
 
   return (
     <div className={styles.PMwrapper}>
-      <div className={styles.heading}>Popular Today!</div>
+      <div className={styles.heading}>Popular Today</div>
       <div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (

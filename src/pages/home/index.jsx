@@ -20,7 +20,7 @@ const HomePage = () => {
       <Navbar />
       <div className={styles.videoContainer}>
         <iframe
-          src="https://www.youtube.com/embed/Ruyl8_PT_y8?autoplay=1&mute=1&loop=1&controls=0"
+          src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&mute=1&loop=1&controls=0"
           frameborder="0"
         ></iframe>
         <div className={styles.blurContainer}></div>

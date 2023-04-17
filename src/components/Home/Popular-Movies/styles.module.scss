@@ -1,6 +1,7 @@
 .PMwrapper {
   padding: 10px 40px 10px 40px;
   background: #141414;
+  margin-top: -190px;
 
   .heading {
     font-family: Ubuntu;
@@ -8,19 +9,19 @@
     font-weight: 600;
     font-size: 25px;
     margin-bottom: 15px;
-    margin-top: -180px;
   }
 
   & > div {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 
     .cardsContainer {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       scroll-behavior: smooth;
       overflow-x: scroll;
-      height: max-content;
+      overflow-y: hidden;
+      height: 250px;
 
       &::-webkit-scrollbar {
         display: none;

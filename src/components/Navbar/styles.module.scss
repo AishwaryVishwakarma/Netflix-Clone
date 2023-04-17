@@ -2,6 +2,10 @@
   background: var(--bg-dark);
 }
 
+.lowOpacity {
+  opacity: 0.95;
+}
+
 .navbar {
   color: white;
   padding: 18px 57px;
@@ -13,6 +17,7 @@
   width: 100%;
   transition: all 0.3s ease-in-out;
   user-select: none;
+  z-index: 100;
 
   .logo {
     height: 30px;
@@ -29,11 +34,10 @@
 
     li {
       cursor: pointer;
-      &:hover{
+      &:hover {
         color: #5b5b5b;
       }
     }
-    
   }
 
   .rightContainer {
@@ -89,7 +93,7 @@
 
       .dropdownWrapper {
         position: absolute;
-        top: 32px;
+        top: 34px;
         right: 0;
         padding-top: 20px;
         cursor: default;
@@ -112,7 +116,7 @@
 
         .profileDropdown {
           position: relative;
-          box-shadow: 0 0 0.5px 0 #eeeeee;
+          box-shadow: 0 0 1px 0 #eeeeee;
           background: var(--bg-dark);
           width: 220px;
           cursor: default;
