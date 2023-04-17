@@ -9,11 +9,11 @@
 }
 
 .blurContainer {
-  height: 140px;
+  height: 60px;
   position: absolute;
-  top: 620px;
+  top: 670px;
   width: 100%;
   z-index: 1;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
