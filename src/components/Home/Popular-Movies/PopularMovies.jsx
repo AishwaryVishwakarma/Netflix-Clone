@@ -23,30 +23,31 @@ const PopularMovies = () => {
       .catch((err) => console.log(err))
   }, [])
 
-  
   console.log(movies)
 
   return (
     <div className={styles.PMwrapper}>
       <div className={styles.heading}>Popular Today!</div>
-      <div ref={cardsSectionRef} className={styles.cardsContainer}>
-        {movies.map((element, idx) => (
-          <MovieCard poster_path={element.poster_path} />
-        ))}
-        <button
-          type='button'
-          className={styles.prevButton}
-          onClick={() => scroll(-1400)}
-        >
-          <MdNavigateBefore className={styles.buttonIcons} />
-        </button>
-        <button
-          type='button'
-          className={styles.nextButton}
-          onClick={() => scroll(1400)}
-        >
-          <MdNavigateNext className={styles.buttonIcons} />
-        </button>
+      <div>
+        <div ref={cardsSectionRef} className={styles.cardsContainer}>
+          {movies.map((element, idx) => (
+            <MovieCard poster_path={element.poster_path} />
+          ))}
+          <button
+            type="button"
+            className={styles.prevButton}
+            onClick={() => scroll(-1400)}
+          >
+            <MdNavigateBefore className={styles.buttonIcons} />
+          </button>
+          <button
+            type="button"
+            className={styles.nextButton}
+            onClick={() => scroll(1400)}
+          >
+            <MdNavigateNext className={styles.buttonIcons} />
+          </button>
+        </div>
       </div>
     </div>
   )

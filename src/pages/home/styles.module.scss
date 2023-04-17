@@ -1,11 +1,19 @@
+.videoContainer {
+  background: #141414;
 
-
-.container{
-
-  background-color: #141414;
-
-  .startImage {
+  iframe {
+    height: 700px;
     width: 100%;
-    height: 98%;
+    background: linear-gradient();
   }
+}
+
+.blurContainer {
+  height: 140px;
+  position: absolute;
+  top: 620px;
+  width: 100%;
+  z-index: 1;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(5px);
 }

@@ -16,18 +16,18 @@ const HomePage = () => {
   }, [])
 
   return (
-    <>
+    <div className={styles.home}>
       <Navbar />
-      <div className={styles.container}>
-        <img
-          className={styles.startImage}
-          src="https://cdn.wallpapersafari.com/87/72/2j1nqe.jpg"
-          alt=""
-        />
-        <PopularMovies />
+      <div className={styles.videoContainer}>
+        <iframe
+          src="https://www.youtube.com/embed/Ruyl8_PT_y8?autoplay=1&mute=1&loop=1&controls=0"
+          frameborder="0"
+        ></iframe>
+        <div className={styles.blurContainer}></div>
       </div>
+      <PopularMovies />
       <Footer />
-    </>
+    </div>
   )
 }
 
