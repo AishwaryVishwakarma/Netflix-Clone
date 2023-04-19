@@ -1,7 +1,9 @@
 .PMwrapper {
+  position: relative;
   padding: 10px 40px 10px 40px;
-  background: #141414;
+  background: transparent;
   margin-top: -190px;
+  z-index: 2;
 
   .heading {
     font-family: Ubuntu;
@@ -11,52 +13,47 @@
     margin-bottom: 15px;
   }
 
-  & > div {
-    position: relative;
-    z-index: 1;
+  .cardsContainer {
+    display: flex;
+    gap: 12px;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 250px;
 
-    .cardsContainer {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    button {
       display: flex;
-      gap: 12px;
-      scroll-behavior: smooth;
-      overflow-x: scroll;
-      overflow-y: hidden;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
       height: 250px;
+      width: 50px;
+      cursor: pointer;
+      border: none;
+      top: 178px;
+      transform: translateY(-50%);
+      background-color: rgba($color: #000000, $alpha: 0.15);
+      font-size: 37px;
+      font-weight: 900;
+    }
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+    .buttonIcons {
+      color: white;
+      font-size: 50px;
+    }
 
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        height: 250px;
-        width: 50px;
-        cursor: pointer;
-        border: none;
-        top: 125px;
-        transform: translateY(-50%);
-        background-color: rgba($color: #000000, $alpha: 0.15);
-        font-size: 37px;
-        font-weight: 900;
-      }
+    .prevButton {
+      left: 40px;
+      border-radius: 0 5px 5px 0;
+    }
 
-      .buttonIcons {
-        color: white;
-        font-size: 50px;
-      }
-
-      .prevButton {
-        left: 0px;
-        border-radius: 0 5px 5px 0;
-      }
-
-      .nextButton {
-        right: 0px;
-        border-radius: 5px 0 0 5px;
-      }
+    .nextButton {
+      right: 40px;
+      border-radius: 5px 0 0 5px;
     }
   }
 }

@@ -21,7 +21,7 @@ const HomePage = () => {
       <div className={styles.videoContainer}>
         <iframe
           src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&mute=1&loop=1&controls=0"
-          frameborder="0"
+          frameBorder="0"
         ></iframe>
         <div className={styles.blurContainer}></div>
       </div>
