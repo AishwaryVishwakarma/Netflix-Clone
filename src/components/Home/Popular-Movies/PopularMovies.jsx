@@ -24,9 +24,10 @@ const PopularMovies = () => {
   }, [])
 
   return (
-    <div className={styles.PMwrapper}>
-      <div className={styles.heading}>Popular Today</div>
-      <div>
+    <>
+      <div className={styles.blurContainer}></div>
+      <div className={styles.PMwrapper}>
+        <div className={styles.heading}>Popular Today</div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (
             <MovieCard key={element.id} poster_path={element.poster_path} />
@@ -47,7 +48,7 @@ const PopularMovies = () => {
           </button>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
