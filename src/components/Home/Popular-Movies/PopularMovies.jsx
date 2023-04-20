@@ -23,6 +23,8 @@ const PopularMovies = () => {
       .catch((err) => console.log(err))
   }, [])
 
+  // console.log(movies)
+
   return (
     <>
       <div className={styles.blurContainer}></div>
@@ -30,7 +32,7 @@ const PopularMovies = () => {
         <div className={styles.heading}>Popular Today</div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (
-            <MovieCard key={element.id} poster_path={element.poster_path} />
+            <MovieCard key={element.id} movieData={element} />
           ))}
           <button
             type="button"
