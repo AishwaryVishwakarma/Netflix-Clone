@@ -20,7 +20,7 @@ const HomePage = () => {
       <Navbar />
       <div className={styles.videoContainer}>
         <iframe
-          src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&mute=1&loop=1&controls=0"
+          src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&mute=1&loop=1&controls=0&playlist=1JLUn2DFW4w"
           frameBorder="0"
         ></iframe>
       </div>
