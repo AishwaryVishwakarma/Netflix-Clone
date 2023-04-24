@@ -21,25 +21,31 @@ const MovieCard = ({ movieData }) => {
   }, [])
 
   return (
-    <div className={styles.movieCardWrapper}>
-      <img
-        src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
-      />
-      <div className={styles.detailsContainer}>
-        <div className={styles.ctaContainer}>
-          <BsFillPlayFill className={styles.playButton} />
-          <BsHandThumbsUp className={styles.thumbsIcon} />
-          <AiOutlinePlus className={styles.plusIcon} />
-          <AiOutlineDown className={styles.downIcon} />
-        </div>
-        <p className={styles.title}>{detail.title}</p>
-        <div className={styles.genresContainer}>
-          {genres.map((genre) => (
-            <div className={styles.genre}>
-              <RxDotFilled className={styles.dotIcon}/>
-              <p className={styles.genreTitle}>{genre.name}</p>
-            </div>
-          ))}
+    <div className={styles.bgContainer}>
+      <div className={styles.movieCardWrapper}>
+        <img
+          src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
+        />
+        <div className={styles.detailsContainer}>
+          <div className={styles.ctaContainer}>
+            <BsFillPlayFill
+              className={`${styles.playButton} ${styles.button}`}
+            />
+            <BsHandThumbsUp
+              className={`${styles.thumbsIcon} ${styles.button}`}
+            />
+            <AiOutlinePlus className={`${styles.plusIcon} ${styles.button}`} />
+            <AiOutlineDown className={`${styles.downIcon} ${styles.button}`} />
+          </div>
+          <p className={styles.title}>{detail.title}</p>
+          <div className={styles.genresContainer}>
+            {genres.map((genre) => (
+              <div className={styles.genre}>
+                <RxDotFilled className={styles.dotIcon} />
+                <p className={styles.genreTitle}>{genre.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

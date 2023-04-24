@@ -1,110 +1,123 @@
-.movieCardWrapper {
-  cursor: pointer;
-  width: 200px;
-  position: relative;
+.bgContainer {
+  width: 190px;
+  height: 284px;
+  background: transparent;
+  flex-shrink: 0;
 
   &:hover {
-    .detailsContainer {
-      position: absolute;
-      display: flex;
-    }
-  }
+    .movieCardWrapper {
+      transform: scale(1.2);
 
-  img {
-    width: 200px;
-    height: 280px;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-
-  .detailsContainer {
-    bottom: 0;
-    background: var(-bg--dark);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px 0;
-    display: none;
-
-    .ctaContainer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 40px;
-
-      * {
-        border: 1.5px solid #949494;
-        border-radius: 50%;
-        padding: 8px;
+      .detailsContainer {
         display: flex;
-        background: #2a2a2a;
-        transition: outline 0.2s ease-in-out;
-
-        &:hover {
-          outline: 1.5px solid #ffffff;
-        }
-      }
-
-      .playButton {
-        color: var(-bg--dark) !important;
-        background: #ffffff;
-        padding: 5px;
-      }
-
-      .thumbsIcon {
-        color: #ffffff;
-      }
-
-      .plusIcon {
-        color: #ffffff;
-      }
-
-      .downIcon {
-        margin-left: auto;
-        color: #ffffff;
       }
     }
+  }
 
-    .title {
-      font-family: Ubuntu;
-      color: #ffffff;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      line-clamp: 1;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      font-size: 16px;
-      font-weight: 300;
+  .movieCardWrapper {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.25s ease-in-out;
+
+    img {
+      height: 100%;
+      width: auto;
+      border-radius: 5px;
+      object-fit: cover;
     }
 
-    .genresContainer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      line-height: 10px;
-      max-height: 42px;
+    .detailsContainer {
+      background: #141414 !important;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px;
+      display: none;
+      height: max-content;
 
-      .genre {
+      .ctaContainer {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        font-size: 30px;
 
-        &:first-child {
-          .dotIcon {
-            display: none;
+        * {
+          border: 1.5px solid #949494;
+          border-radius: 50%;
+          padding: 8px;
+          display: flex;
+          background: #2a2a2a;
+          transition: outline 0.2s ease-in-out;
+        }
+
+        .button {
+          &:hover {
+            outline: 1.5px solid #ffffff;
           }
         }
 
-        .genreTitle {
-          font-size: 14px;
-          font-family: Ubuntu;
-          color: #ffffff;
-          font-weight: 300;
+        .playButton {
+          color: var(-bg--dark) !important;
+          background: #ffffff;
+          padding: 5px;
         }
 
-        .dotIcon {
-          color: #8f8f8f;
+        .thumbsIcon {
+          color: #ffffff;
+        }
+
+        .plusIcon {
+          color: #ffffff;
+        }
+
+        .downIcon {
+          margin-left: auto;
+          color: #ffffff;
+        }
+      }
+
+      .title {
+        font-family: Ubuntu;
+        color: #ffffff;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      .genresContainer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        line-height: 10px;
+        max-height: 42px;
+        overflow: hidden;
+
+        .genre {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          &:first-child {
+            .dotIcon {
+              display: none;
+            }
+          }
+
+          .genreTitle {
+            font-size: 12px;
+            font-family: Ubuntu;
+            color: #ffffff;
+            font-weight: 300;
+          }
+
+          .dotIcon {
+            color: #8f8f8f;
+          }
         }
       }
     }
