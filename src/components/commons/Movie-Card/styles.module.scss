@@ -7,6 +7,8 @@
   &:hover {
     .movieCardWrapper {
       transform: scale(1.2);
+      position: relative;
+      z-index: 1;
 
       .detailsContainer {
         display: flex;
