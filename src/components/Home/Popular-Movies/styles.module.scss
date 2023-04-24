@@ -18,7 +18,7 @@
   background: transparent;
   margin-top: -190px;
   z-index: 2;
-
+  
   .heading {
     font-family: Ubuntu;
     color: white;
@@ -32,10 +32,19 @@
     gap: 12px;
     scroll-behavior: smooth;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .movieCardContainer{
+      display: flex;
+      gap: 12px;
+
+      // & :hover{
+      //   transform: scale(1.5) !important;
+      // }
     }
 
     button {

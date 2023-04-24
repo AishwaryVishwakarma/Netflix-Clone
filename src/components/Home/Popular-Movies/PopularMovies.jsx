@@ -31,9 +31,12 @@ const PopularMovies = () => {
       <div className={styles.PMwrapper}>
         <div className={styles.heading}>Popular Today</div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
+          <div className={styles.movieCardContainer}>
           {movies.map((element, idx) => (
             <MovieCard key={element.id} movieData={element} />
           ))}
+          </div>
+         
           <button
             type="button"
             className={styles.prevButton}
