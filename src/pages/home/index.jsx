@@ -3,6 +3,13 @@ import styles from './styles.module.scss'
 import Navbar from '../../components/Navbar/Navbar'
 import PopularMovies from '../../components/Home/Popular-Movies/PopularMovies'
 import Footer from '../../components/Footer/Footer'
+import GenericMovies from '../../components/Home/Generic-Movies/GenericMovies'
+
+const MOVIES_LIST = [
+  { name: 'Harry Potter' },
+  { name: 'Pirates of the caribbean' },
+  { name: 'Star Wars' }
+]
 
 const HomePage = () => {
   const prevTitle = React.useRef(document.title)
@@ -25,6 +32,9 @@ const HomePage = () => {
         ></iframe>
       </div>
       <PopularMovies />
+      {MOVIES_LIST.map((movie) => (
+        <GenericMovies movieName={movie.name} />
+      ))}
       <Footer />
     </div>
   )
