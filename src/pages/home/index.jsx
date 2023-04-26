@@ -7,7 +7,7 @@ import GenericMovies from '../../components/Home/Generic-Movies/GenericMovies'
 
 const MOVIES_LIST = [
   { name: 'Harry Potter' },
-  { name: 'pirates of the caribbean' },
+  { name: 'Pirates of the caribbean' },
   { name: 'Star Wars' }
 ]
 

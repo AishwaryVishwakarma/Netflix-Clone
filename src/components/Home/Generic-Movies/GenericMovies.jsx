@@ -29,7 +29,7 @@ const GenericMovies = ({ movieName }) => {
     <>
       <div className={styles.blurContainer}></div>
       <div className={styles.PMwrapper}>
-        <div className={styles.heading}>Harry Potter Movies</div>
+        <div className={styles.heading}>{movieName} Movies</div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (
             <MovieCard key={element.id} movieData={element} />

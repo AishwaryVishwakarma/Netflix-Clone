@@ -37,7 +37,7 @@ const Footer = () => {
         Service Code
       </div>
       <div className={styles.trademark}>
-        @ 1997 - 2023 Netflix, Inc.
+        @ 2023 , Dipayan Chakraborty & Aishwary Vishwakarma Inc.
       </div>
     </div>
   )
