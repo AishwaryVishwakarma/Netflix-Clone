@@ -6,7 +6,7 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 const API_KEY = '9c3fd4dd152d57af68bd8d3ebd55fce0'
 
-const GenericMovies = ({movie_list}) => {
+const GenericMovies = ({ movieName }) => {
   const [movies, setMovies] = React.useState([])
   let cardsSectionRef = React.useRef()
 
@@ -15,16 +15,15 @@ const GenericMovies = ({movie_list}) => {
       cardsSectionRef.current.scrollLeft += scrollOffset
     }
   }
- 
- console.log(movie_list);
+
   React.useEffect(() => {
     axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movie_list}&page=1&include_adult=false`)
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}`
+      )
       .then((res) => setMovies(res.data.results))
       .catch((err) => console.log(err))
   }, [])
-
-  console.log(movies)
 
   return (
     <>
