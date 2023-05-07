@@ -4,10 +4,21 @@ import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
 import { AiOutlinePlus, AiOutlineDown } from 'react-icons/ai'
 import { RxDotFilled } from 'react-icons/rx'
 import axios from 'axios'
+import movieDetailModal from '../movieDetailModal/movieDetailModal'
+
 
 const MovieCard = ({ movieData }) => {
   const [detail, setDetail] = React.useState({})
   const [genres, setGenres] = React.useState([])
+  const [isModalOpen, setIsModalOpen]= React.useState(false);
+
+  const closeModal = () => setIsModalOpen(false);
+
+  const handleCloseButton = (
+    <button className="model-btn" onClick={closeModal}>
+      Accept It
+    </button>
+  );
 
   React.useEffect(() => {
     axios(
@@ -21,6 +32,7 @@ const MovieCard = ({ movieData }) => {
   }, [])
 
   return (
+    <>
     <div className={styles.bgContainer}>
       <div className={styles.movieCardWrapper}>
         <img
@@ -35,7 +47,7 @@ const MovieCard = ({ movieData }) => {
               className={`${styles.thumbsIcon} ${styles.button}`}
             />
             <AiOutlinePlus className={`${styles.plusIcon} ${styles.button}`} />
-            <AiOutlineDown className={`${styles.downIcon} ${styles.button}`} />
+            <AiOutlineDown className={`${styles.downIcon} ${styles.button}`} onClick={()=>setIsModalOpen(true)} />
           </div>
           <p className={styles.title}>{detail.title}</p>
           <div className={styles.genresContainer}>
@@ -49,6 +61,8 @@ const MovieCard = ({ movieData }) => {
         </div>
       </div>
     </div>
+    {<movieDetailModal handleCloseButton={handleCloseButton}/>}
+    </>
   )
 }
 
