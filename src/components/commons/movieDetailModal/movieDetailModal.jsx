@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import { createPortal } from 'react-dom'
 
-const movieDetailModal = ({ handleClosebutton }) => {
+const MovieDetailModal = ({ handleCloseButton }) => {
   return createPortal(
     <>
       <div className={styles.overLayStyles}> </div>
@@ -17,13 +17,11 @@ const movieDetailModal = ({ handleClosebutton }) => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
-
-
-        {handleClosebutton}
+        {handleCloseButton}
       </div>
     </>,
     document.getElementById('movie-detail-modal')
   )
 }
 
-export default movieDetailModal
+export default MovieDetailModal
