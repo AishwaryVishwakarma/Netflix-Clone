@@ -6,7 +6,7 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 const API_KEY = '9c3fd4dd152d57af68bd8d3ebd55fce0'
 
-const PopularMovies = () => {
+const GenericMovies = ({ movieName }) => {
   const [movies, setMovies] = React.useState([])
   let cardsSectionRef = React.useRef()
 
@@ -18,18 +18,18 @@ const PopularMovies = () => {
 
   React.useEffect(() => {
     axios
-      .get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`)
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}`
+      )
       .then((res) => setMovies(res.data.results))
       .catch((err) => console.log(err))
   }, [])
-
-  // console.log(movies)
 
   return (
     <>
       <div className={styles.blurContainer}></div>
       <div className={styles.PMwrapper}>
-        <div className={styles.heading}>Popular Today</div>
+        <div className={styles.heading}>{movieName} Movies</div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (
             <MovieCard key={element.id} movieData={element} />
@@ -54,4 +54,4 @@ const PopularMovies = () => {
   )
 }
 
-export default PopularMovies
+export default GenericMovies

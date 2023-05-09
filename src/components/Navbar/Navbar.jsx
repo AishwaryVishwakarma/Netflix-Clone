@@ -58,7 +58,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.navbar} ${scrollAmount > 10 ? styles.bgDark : null}`}
+      className={`${styles.navbar} ${scrollAmount > 10 ? styles.bgDark : ""}`}
     >
       <img
         src="https://i.postimg.cc/MTkxkpnT/Logonetflix.png"
@@ -78,7 +78,7 @@ const Navbar = () => {
           <img src="https://i.postimg.cc/yYNvX4dG/red.jpg" alt="" />
           <AiFillCaretDown className={styles.caret} />
           <div className={styles.dropdownWrapper}>
-            <div className={styles.profileDropdown}>
+            <div className={`${styles.profileDropdown} ${scrollAmount > 50 ? styles.lowOpacity : ""}`}>
               <div className={styles.itemsContainer}>
                 {DUMMY_PROFILES.map((profile, idx) => (
                   <div key={idx} className={styles.profiles}>
