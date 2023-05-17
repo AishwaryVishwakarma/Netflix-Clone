@@ -11,14 +11,6 @@ const MovieCard = ({ movieData }) => {
   const [genres, setGenres] = React.useState([])
   const [isModalOpen, setIsModalOpen] = React.useState(false)
 
-  const closeModal = () => setIsModalOpen(false)
-
-  const handleCloseButton = (
-    <button className="model-btn" onClick={closeModal}>
-      Accept It
-    </button>
-  )
-
   React.useEffect(() => {
     axios(
       `https://api.themoviedb.org/3/movie/${movieData.id}?api_key=9c3fd4dd152d57af68bd8d3ebd55fce0&language=en-US`
@@ -65,7 +57,7 @@ const MovieCard = ({ movieData }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && <MovieDetailModal handleCloseButton={handleCloseButton} movieDetail={detail}/>}
+      {isModalOpen && <MovieDetailModal setIsModalOpen={setIsModalOpen} movieDetail={detail}/>}
     </>
   )
 }

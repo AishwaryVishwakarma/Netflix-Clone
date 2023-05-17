@@ -1,28 +1,73 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import { createPortal } from 'react-dom'
+import { useEffect } from 'react'
 
-const MovieDetailModal = ({ handleCloseButton,movieDetail }) => {
+const MovieDetailModal = ({ setIsModalOpen, movieDetail }) => {
+  React.useEffect(() => {
+    const keyDownHandler = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setIsModalOpen(false)
+      }
+    }
+    document.addEventListener('keydown', keyDownHandler)
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler)
+    }
+  }, [setIsModalOpen])
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
+
   return createPortal(
     <>
-      <div className={styles.modalBackdrop} > </div>
+      <div
+        className={styles.modalBackdrop}
+        onClick={() => {
+          setIsModalOpen(false)
+        }}
+      >
+        {' '}
+      </div>
       <div className={styles.modalContent}>
-        <div className={styles.modalContainer}>
+        <img
+          src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
+        ></img>
+        {/* {movieDetail.original_title} */}
+        <div className={styles.blurContainer}></div>
 
-          <img  src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`}></img>
-          <div className={styles.overviewContainer}></div>
+        <div className={styles.overviewContainer}>
+          <div className={styles.firstColumn}>
+            <div className={styles.statsContainer}>
+              <div className={styles.voteAverage}>
+                {movieDetail.vote_average *10}% Match
+              </div>
+              <div>
+                {movieDetail.release_date}
+              </div>
+              
+            </div>
+            <div className={styles.storyDescription}>
+              {movieDetail.overview}
+            </div>
+          </div>
+          <div className={styles.secondColumn}>
+            <div className={styles.genresContainer}>
+              <span>Genres</span>
+              <div className={styles.genres}>
+                {movieDetail.genres.map((genre) => (
+                  <p className={styles.genreTitle}>{genre.name},</p>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-        <h2>{movieDetail.original_title}</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        {handleCloseButton}
       </div>
     </>,
     document.getElementById('movie-detail-modal')
