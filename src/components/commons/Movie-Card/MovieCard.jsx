@@ -65,7 +65,7 @@ const MovieCard = ({ movieData }) => {
           </div>
         </div>
       </div>
-      <MovieDetailModal handleCloseButton={handleCloseButton} />
+      {isModalOpen && <MovieDetailModal handleCloseButton={handleCloseButton} movieDetail={detail}/>}
     </>
   )
 }

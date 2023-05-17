@@ -2,12 +2,17 @@ import React from 'react'
 import styles from './styles.module.scss'
 import { createPortal } from 'react-dom'
 
-const MovieDetailModal = ({ handleCloseButton }) => {
+const MovieDetailModal = ({ handleCloseButton,movieDetail }) => {
   return createPortal(
     <>
-      <div className={styles.overLayStyles}> </div>
-      <div className={styles.modalStyles}>
-        <h2>Lorem ipsum</h2>
+      <div className={styles.modalBackdrop} > </div>
+      <div className={styles.modalContent}>
+        <div className={styles.modalContainer}>
+
+          <img  src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`}></img>
+          <div className={styles.overviewContainer}></div>
+        </div>
+        <h2>{movieDetail.original_title}</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
