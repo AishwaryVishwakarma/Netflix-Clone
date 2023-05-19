@@ -6,7 +6,7 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 const API_KEY = '9c3fd4dd152d57af68bd8d3ebd55fce0'
 
-const GenericMovies = ({ movieName }) => {
+const GenericMovies = ({ movieName, query }) => {
   const [movies, setMovies] = React.useState([])
   let cardsSectionRef = React.useRef()
 
@@ -15,34 +15,44 @@ const GenericMovies = ({ movieName }) => {
       cardsSectionRef.current.scrollLeft += scrollOffset
     }
   }
-
-  React.useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}`
-      )
-      .then((res) => setMovies(res.data.results))
-      .catch((err) => console.log(err))
-  }, [])
+  query == 'search'
+    ? React.useEffect(() => {
+        axios
+          .get(
+            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}`
+          )
+          .then((res) => setMovies(res.data.results))
+          .catch((err) => console.log(err))
+      }, [])
+    : React.useEffect(() => {
+        axios
+          .get(
+            `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
+          )
+          .then((res) => setMovies(res.data.results))
+          .catch((err) => console.log(err))
+      }, [])
 
   return (
     <>
       <div className={styles.blurContainer}></div>
       <div className={styles.PMwrapper}>
-        <div className={styles.heading}>{movieName} Movies</div>
+        <div className={styles.heading}>
+          {query == 'search' ? `${movieName} Movies` : 'Popular Today'}
+        </div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (
             <MovieCard key={element.id} movieData={element} />
           ))}
           <button
-            type="button"
+            type='button'
             className={styles.prevButton}
             onClick={() => scroll(-1400)}
           >
             <MdNavigateBefore className={styles.buttonIcons} />
           </button>
           <button
-            type="button"
+            type='button'
             className={styles.nextButton}
             onClick={() => scroll(1400)}
           >
