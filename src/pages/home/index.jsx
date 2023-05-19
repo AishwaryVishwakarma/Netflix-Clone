@@ -6,10 +6,9 @@ import GenericMovies from '../../components/Home/Generic-Movies/GenericMovies'
 import { BsFillPlayFill } from 'react-icons/bs'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 import { createContext } from 'react'
+import MovieDetailModal from '../../components/commons/movieDetailModal/movieDetailModal'
 
 export const UserContext = createContext()
-
-const API_KEY = '9c3fd4dd152d57af68bd8d3ebd55fce0'
 
 const MOVIES_LIST = [
   {
@@ -33,6 +32,8 @@ const MOVIES_LIST = [
 
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [id, setID] = useState()
+
   const prevTitle = React.useRef(document.title)
 
   React.useEffect(() => {
@@ -43,8 +44,15 @@ const HomePage = () => {
     }
   }, [])
 
+  function openModal(id) {
+    console.log(id)
+    setIsModalOpen(true)
+    setID(id)
+    
+  }
+
   return (
-    <UserContext.Provider value={{ isModalOpen, setIsModalOpen }}>
+    <UserContext.Provider value={{ isModalOpen, setIsModalOpen, openModal }}>
       <div className={styles.home}>
         <Navbar />
         <div className={styles.videoContainer}>
@@ -66,6 +74,7 @@ const HomePage = () => {
         ))}
         <Footer />
       </div>
+      {isModalOpen && <MovieDetailModal movieId={id} />}
     </UserContext.Provider>
   )
 }

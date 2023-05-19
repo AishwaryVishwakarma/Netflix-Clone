@@ -11,7 +11,7 @@ const MovieCard = ({movieData}) => {
   const [detail, setDetail] = React.useState({});
   const [genres, setGenres] = React.useState([]);
 
-  const {isModalOpen, setIsModalOpen} = useContext(UserContext);
+  const {openModal}=useContext(UserContext);
 
   React.useEffect(() => {
     axios(
@@ -44,7 +44,7 @@ const MovieCard = ({movieData}) => {
               />
               <AiOutlineDown
                 className={`${styles.downIcon} ${styles.button}`}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => openModal(movieData.id)}
               />
             </div>
             <p className={styles.title}>{detail.title}</p>
@@ -59,7 +59,7 @@ const MovieCard = ({movieData}) => {
           </div>
         </div>
       </div>
-      {isModalOpen && <MovieDetailModal movieDetail={detail} />}
+      
     </>
   );
 };

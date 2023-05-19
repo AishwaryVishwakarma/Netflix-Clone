@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './styles.module.scss';
 import {createPortal} from 'react-dom';
 import {useEffect} from 'react';
@@ -8,8 +8,21 @@ import {BsFillPlayFill, BsHandThumbsUp} from 'react-icons/bs';
 import {AiOutlinePlus} from 'react-icons/ai';
 import {UserContext} from '../../../pages/home/index';
 
-const MovieDetailModal = ({movieDetail}) => {
-  const {isModalOpen, setIsModalOpen} = React.useContext(UserContext);
+const MovieDetailModal = ({movieID}) => {
+
+  const {isModalOpen,setIsModalOpen}=useContext(UserContext);
+
+  React.useEffect(() => {
+    axios(
+      `https://api.themoviedb.org/3/movie/${movieID}?api_key=9c3fd4dd152d57af68bd8d3ebd55fce0&language=en-US`
+    )
+      .then((res) => {
+        setDetail(res.data);
+        setGenres(res.data.genres);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
 
   React.useEffect(() => {
     const keyDownHandler = (event) => {
@@ -43,9 +56,9 @@ const MovieDetailModal = ({movieDetail}) => {
         {' '}
       </div>
       <div className={styles.modalContent}>
-        <img
+        {movieDetail.backdrop_path && <img
           src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
-        ></img>
+        ></img>}
         <div className={styles.viewOptions}>
           <div className={styles.playButton}>
             <BsFillPlayFill className={`${styles.playIcon} ${styles.button}`} />{' '}
