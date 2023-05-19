@@ -37,7 +37,9 @@ const GenericMovies = ({ movieName, query }) => {
     <>
       <div className={styles.blurContainer}></div>
       <div className={styles.PMwrapper}>
-        <div className={styles.heading}>{query=='search' ?`${movieName} Movies` : 'Popular Today'}</div>
+        <div className={styles.heading}>
+          {query == 'search' ? `${movieName} Movies` : 'Popular Today'}
+        </div>
         <div ref={cardsSectionRef} className={styles.cardsContainer}>
           {movies.map((element, idx) => (
             <MovieCard key={element.id} movieData={element} />

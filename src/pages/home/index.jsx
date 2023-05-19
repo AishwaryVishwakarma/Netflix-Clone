@@ -32,7 +32,7 @@ const MOVIES_LIST = [
 
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [id, setID] = useState()
+  const [data, setData] = useState()
 
   const prevTitle = React.useRef(document.title)
 
@@ -44,11 +44,10 @@ const HomePage = () => {
     }
   }, [])
 
-  function openModal(id) {
-    console.log(id)
+  function openModal(data) {
     setIsModalOpen(true)
-    setID(id)
-    
+    setData(data)
+    // console.log(data)
   }
 
   return (
@@ -74,7 +73,7 @@ const HomePage = () => {
         ))}
         <Footer />
       </div>
-      {isModalOpen && <MovieDetailModal movieId={id} />}
+      {isModalOpen && <MovieDetailModal movieDetail={data} />}
     </UserContext.Provider>
   )
 }

@@ -1,64 +1,55 @@
-import React, { useContext } from 'react';
-import styles from './styles.module.scss';
-import {createPortal} from 'react-dom';
-import {useEffect} from 'react';
-import {FaAudioDescription} from 'react-icons/fa';
-import {MdOutlineSubtitles, MdOutlineClose} from 'react-icons/md';
-import {BsFillPlayFill, BsHandThumbsUp} from 'react-icons/bs';
-import {AiOutlinePlus} from 'react-icons/ai';
-import {UserContext} from '../../../pages/home/index';
+import React, { useContext } from 'react'
+import styles from './styles.module.scss'
+import { createPortal } from 'react-dom'
+import { useEffect } from 'react'
+import { FaAudioDescription } from 'react-icons/fa'
+import { MdOutlineSubtitles, MdOutlineClose } from 'react-icons/md'
+import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
+import { AiOutlinePlus } from 'react-icons/ai'
+import { UserContext } from '../../../pages/home/index'
 
-const MovieDetailModal = ({movieID}) => {
-
-  const {isModalOpen,setIsModalOpen}=useContext(UserContext);
-
-  React.useEffect(() => {
-    axios(
-      `https://api.themoviedb.org/3/movie/${movieID}?api_key=9c3fd4dd152d57af68bd8d3ebd55fce0&language=en-US`
-    )
-      .then((res) => {
-        setDetail(res.data);
-        setGenres(res.data.genres);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
+const MovieDetailModal = ({ movieDetail }) => {
+  const { setIsModalOpen } = useContext(UserContext)
 
   React.useEffect(() => {
     const keyDownHandler = (event) => {
       if (event.key === 'Escape') {
-        event.preventDefault();
-        setIsModalOpen(false);
+        event.preventDefault()
+        setIsModalOpen(false)
       }
-    };
-    document.addEventListener('keydown', keyDownHandler);
+    }
+    document.addEventListener('keydown', keyDownHandler)
 
     return () => {
-      document.removeEventListener('keydown', keyDownHandler);
-    };
-  }, [setIsModalOpen]);
+      document.removeEventListener('keydown', keyDownHandler)
+    }
+  }, [setIsModalOpen])
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'
     return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
+
+  // console.log(movieDetail.genres)
 
   return createPortal(
     <>
       <div
         className={styles.modalBackdrop}
         onClick={() => {
-          setIsModalOpen(false);
+          setIsModalOpen(false)
         }}
       >
         {' '}
       </div>
       <div className={styles.modalContent}>
-        {movieDetail.backdrop_path && <img
-          src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
-        ></img>}
+        {movieDetail.backdrop_path && (
+          <img
+            src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
+          ></img>
+        )}
         <div className={styles.viewOptions}>
           <div className={styles.playButton}>
             <BsFillPlayFill className={`${styles.playIcon} ${styles.button}`} />{' '}
@@ -72,7 +63,7 @@ const MovieDetailModal = ({movieID}) => {
         <div
           className={styles.closeButton}
           onClick={() => {
-            setIsModalOpen(false);
+            setIsModalOpen(false)
           }}
         >
           <MdOutlineClose className={styles.button} />
@@ -123,7 +114,7 @@ const MovieDetailModal = ({movieID}) => {
       </div>
     </>,
     document.getElementById('movie-detail-modal')
-  );
-};
+  )
+}
 
-export default MovieDetailModal;
+export default MovieDetailModal
