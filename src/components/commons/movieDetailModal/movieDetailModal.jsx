@@ -7,7 +7,9 @@ import { MdOutlineSubtitles, MdOutlineClose } from 'react-icons/md'
 import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
 import { AiOutlinePlus } from 'react-icons/ai'
 
-const MovieDetailModal = ({ setIsModalOpen, movieDetail }) => {
+const MovieDetailModal = ({ movieDetail }) => {
+
+  const {isModalOpen, setIsModalOpen}=useContext(UserContext)
 
 
   console.log(movieDetail)

@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './styles.module.scss'
 import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
 import { AiOutlinePlus, AiOutlineDown } from 'react-icons/ai'
 import { RxDotFilled } from 'react-icons/rx'
 import axios from 'axios'
 import MovieDetailModal from '../movieDetailModal/movieDetailModal'
+import { UserContext } from '../../../pages/home'
 
 const MovieCard = ({ movieData }) => {
   const [detail, setDetail] = React.useState({})
   const [genres, setGenres] = React.useState([])
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
+
+
+  const {isModalOpen, setIsModalOpen}=useContext(UserContext)
+
 
   React.useEffect(() => {
     axios(
@@ -57,7 +61,7 @@ const MovieCard = ({ movieData }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && <MovieDetailModal setIsModalOpen={setIsModalOpen} movieDetail={detail}/>}
+      {isModalOpen && <MovieDetailModal movieDetail={detail}/>}
     </>
   )
 }

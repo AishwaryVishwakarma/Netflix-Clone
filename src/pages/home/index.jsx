@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './styles.module.scss'
 import Navbar from '../../components/Navbar/Navbar'
 import PopularMovies from '../../components/Home/Popular-Movies/PopularMovies'
@@ -6,6 +6,10 @@ import Footer from '../../components/Footer/Footer'
 import GenericMovies from '../../components/Home/Generic-Movies/GenericMovies'
 import { BsFillPlayFill } from 'react-icons/bs'
 import {AiOutlineInfoCircle} from 'react-icons/ai'
+import { createContext } from 'react'
+
+
+export const UserContext=createContext();
 
 const MOVIES_LIST = [
   { name: 'Harry Potter' },
@@ -14,6 +18,8 @@ const MOVIES_LIST = [
 ]
 
 const HomePage = () => {
+
+  const [isModalOpen, setIsModalOpen]=useState(false)
   const prevTitle = React.useRef(document.title)
 
   React.useEffect(() => {
@@ -25,6 +31,7 @@ const HomePage = () => {
   }, [])
 
   return (
+    <UserContext.Provider value={{isModalOpen, setIsModalOpen}}>
     <div className={styles.home}>
       <Navbar />
       <div className={styles.videoContainer}>
@@ -48,6 +55,7 @@ const HomePage = () => {
       ))}
       <Footer />
     </div>
+    </UserContext.Provider>
   )
 }
 
