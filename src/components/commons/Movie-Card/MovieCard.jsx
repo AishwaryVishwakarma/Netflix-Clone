@@ -1,30 +1,28 @@
-import React, { useContext } from 'react'
-import styles from './styles.module.scss'
-import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
-import { AiOutlinePlus, AiOutlineDown } from 'react-icons/ai'
-import { RxDotFilled } from 'react-icons/rx'
-import axios from 'axios'
-import MovieDetailModal from '../movieDetailModal/movieDetailModal'
-import { UserContext } from '../../../pages/home'
+import React, {useContext} from 'react';
+import styles from './styles.module.scss';
+import {BsFillPlayFill, BsHandThumbsUp} from 'react-icons/bs';
+import {AiOutlinePlus, AiOutlineDown} from 'react-icons/ai';
+import {RxDotFilled} from 'react-icons/rx';
+import axios from 'axios';
+import MovieDetailModal from '../movieDetailModal/movieDetailModal';
+import {UserContext} from '../../../pages/home';
 
-const MovieCard = ({ movieData }) => {
-  const [detail, setDetail] = React.useState({})
-  const [genres, setGenres] = React.useState([])
+const MovieCard = ({movieData}) => {
+  const [detail, setDetail] = React.useState({});
+  const [genres, setGenres] = React.useState([]);
 
-
-  const {isModalOpen, setIsModalOpen}=useContext(UserContext)
-
+  const {isModalOpen, setIsModalOpen} = useContext(UserContext);
 
   React.useEffect(() => {
     axios(
       `https://api.themoviedb.org/3/movie/${movieData.id}?api_key=9c3fd4dd152d57af68bd8d3ebd55fce0&language=en-US`
     )
       .then((res) => {
-        setDetail(res.data)
-        setGenres(res.data.genres)
+        setDetail(res.data);
+        setGenres(res.data.genres);
       })
-      .catch((err) => console.log(err))
-  }, [])
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -61,9 +59,9 @@ const MovieCard = ({ movieData }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && <MovieDetailModal movieDetail={detail}/>}
+      {isModalOpen && <MovieDetailModal movieDetail={detail} />}
     </>
-  )
-}
+  );
+};
 
-export default MovieCard
+export default MovieCard;
