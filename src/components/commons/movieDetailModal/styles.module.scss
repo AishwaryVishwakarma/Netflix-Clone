@@ -15,7 +15,7 @@
 .modalContent {
   position: fixed;
   z-index: 12;
-  top: 15%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%);
   background: #ffffff;
@@ -32,16 +32,90 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  overflow-y: scroll;
+  
 
   img {
     width: 100%;
-    height: 56.25%;
+    height: 70%;
     object-fit: cover;
+  }
+
+  .viewOptions {
+    position: fixed;
+    z-index: 13;
+    font-size: 25px;
+    justify-content: center;
+    top: 330px;
+    left: 60px;
+    font-family: Ubuntu;
+    display: flex;
+    gap: 15px;
+
+    .playButton {
+      padding: 5px 40px 5px 25px;
+      background: white;
+
+      .playIcon {
+        position: relative;
+        top: 4px;
+        z-index: 14;
+        font-size: 25px;
+      }
+
+      &:hover {
+        background: #f6f0f0;
+      }
+    }
+
+    .otherOptions {
+      color: white;
+      display: flex;
+      gap: 15px;
+      font-size: 45px;
+      top: 30px;
+      right: 10px;
+
+      * {
+        border: 1.5px solid #949494;
+        border-radius: 50%;
+        padding: 8px;
+        display: flex;
+        background: #2a2a2a;
+        opacity: 0.6;
+        transition: outline 0.2s ease-in-out;
+      }
+
+      .button {
+        &:hover {
+          outline: 3.5px solid #ffffff;
+        }
+      }
+    }
+  }
+
+  .closeButton {
+    position: fixed;
+    z-index: 13;
+    font-size: 30px;
+    top: 10px;
+    right: 10px;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    background: #1c1c1c;
+    opacity: 0.85;
+    transition: outline 0.2s ease-in-out;
+    &:hover {
+      outline: 3.5px solid #ffffff;
+    }
+}
   }
 
   .blurContainer {
     height: 50px;
-    margin-top: 322px;
+    margin-top: 435px;
     position: absolute;
     width: 100%;
     background: linear-gradient(
@@ -62,10 +136,25 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-      width: 60%;
+      width: 70%;
 
       .statsContainer {
         display: flex;
+        color: white;
+        font-size: 20px;
+        gap: 15px;
+
+        .matchPercentage {
+          color: #4ba861;
+          font-weight: bold;
+        }
+
+        .icons {
+          display: flex;
+          gap: 8px;
+        }
+      }
+      .movieTitle {
         color: white;
         font-size: 20px;
       }
@@ -73,6 +162,10 @@
         color: white;
         font-size: 15px;
         display: inline-flex;
+        line-height: 1.5;
+        word-spacing: 3px;
+        flex-wrap: wrap;
+            
       }
     }
 
@@ -80,7 +173,7 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-      width: 40%;
+      width: 0%;
       color: white;
       padding: 0px 0px 0px 20px;
 
@@ -95,7 +188,6 @@
         }
         .genres {
           display: flex;
-          flex-wrap: wrap;
           align-items: center;
           gap: 10px;
           line-height: 10px;
@@ -110,4 +202,6 @@
       }
     }
   }
-}
+  ::-webkit-scrollbar {
+    display: none;
+  }

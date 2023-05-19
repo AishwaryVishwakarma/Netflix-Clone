@@ -4,6 +4,8 @@ import Navbar from '../../components/Navbar/Navbar'
 import PopularMovies from '../../components/Home/Popular-Movies/PopularMovies'
 import Footer from '../../components/Footer/Footer'
 import GenericMovies from '../../components/Home/Generic-Movies/GenericMovies'
+import { BsFillPlayFill } from 'react-icons/bs'
+import {AiOutlineInfoCircle} from 'react-icons/ai'
 
 const MOVIES_LIST = [
   { name: 'Harry Potter' },
@@ -27,10 +29,19 @@ const HomePage = () => {
       <Navbar />
       <div className={styles.videoContainer}>
         <iframe
-          src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&mute=1&loop=1&controls=0&playlist=1JLUn2DFW4w"
-          frameBorder="0"
+          src='https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&mute=1&loop=1&controls=0&playlist=1JLUn2DFW4w'
+          frameBorder='0'
         ></iframe>
       </div>
+      <div className={styles.viewOptions}>
+        <div className={styles.playButton}>
+          <BsFillPlayFill className={`${styles.playIcon}`} /> Play
+        </div>
+        <div className={styles.moreInfo}>
+          <AiOutlineInfoCircle className={`${styles.infoIcon}`} /> More info
+        </div>
+      </div>
+
       <PopularMovies />
       {MOVIES_LIST.map((movie) => (
         <GenericMovies movieName={movie.name} />
