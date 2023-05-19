@@ -8,6 +8,9 @@ import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
 import { AiOutlinePlus } from 'react-icons/ai'
 
 const MovieDetailModal = ({ setIsModalOpen, movieDetail }) => {
+
+
+  console.log(movieDetail)
   React.useEffect(() => {
     const keyDownHandler = (event) => {
       if (event.key === 'Escape') {

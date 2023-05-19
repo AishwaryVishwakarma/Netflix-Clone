@@ -4,7 +4,7 @@ import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
 import { AiOutlinePlus, AiOutlineDown } from 'react-icons/ai'
 import { RxDotFilled } from 'react-icons/rx'
 import axios from 'axios'
-import MovieDetailModal from '../MovieDetailModal/MovieDetailModal'
+import MovieDetailModal from '../movieDetailModal/movieDetailModal'
 
 const MovieCard = ({ movieData }) => {
   const [detail, setDetail] = React.useState({})
