@@ -1,36 +1,36 @@
-import React, { useContext } from 'react'
-import styles from './styles.module.scss'
-import { createPortal } from 'react-dom'
-import { useEffect } from 'react'
-import { FaAudioDescription } from 'react-icons/fa'
-import { MdOutlineSubtitles, MdOutlineClose } from 'react-icons/md'
-import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { UserContext } from '../../../pages/home/index'
+import React, {useContext} from 'react';
+import styles from './styles.module.scss';
+import {createPortal} from 'react-dom';
+import {useEffect} from 'react';
+import {FaAudioDescription} from 'react-icons/fa';
+import {MdOutlineSubtitles, MdOutlineClose} from 'react-icons/md';
+import {BsFillPlayFill, BsHandThumbsUp} from 'react-icons/bs';
+import {AiOutlinePlus} from 'react-icons/ai';
+import {UserContext} from '../../../pages/home/index';
 
-const MovieDetailModal = ({ movieDetail }) => {
-  const { setIsModalOpen } = useContext(UserContext)
+const MovieDetailModal = ({movieDetail}) => {
+  const {setIsModalOpen} = useContext(UserContext);
 
   React.useEffect(() => {
     const keyDownHandler = (event) => {
       if (event.key === 'Escape') {
-        event.preventDefault()
-        setIsModalOpen(false)
+        event.preventDefault();
+        setIsModalOpen(false);
       }
-    }
-    document.addEventListener('keydown', keyDownHandler)
+    };
+    document.addEventListener('keydown', keyDownHandler);
 
     return () => {
-      document.removeEventListener('keydown', keyDownHandler)
-    }
-  }, [setIsModalOpen])
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [setIsModalOpen]);
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [])
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   // console.log(movieDetail.genres)
 
@@ -39,7 +39,7 @@ const MovieDetailModal = ({ movieDetail }) => {
       <div
         className={styles.modalBackdrop}
         onClick={() => {
-          setIsModalOpen(false)
+          setIsModalOpen(false);
         }}
       >
         {' '}
@@ -63,14 +63,11 @@ const MovieDetailModal = ({ movieDetail }) => {
         <div
           className={styles.closeButton}
           onClick={() => {
-            setIsModalOpen(false)
+            setIsModalOpen(false);
           }}
         >
           <MdOutlineClose className={styles.button} />
         </div>
-
-        <div className={styles.blurContainer}></div>
-
         <div className={styles.overviewContainer}>
           <div className={styles.firstColumn}>
             <div className={styles.statsContainer}>
@@ -114,7 +111,7 @@ const MovieDetailModal = ({ movieDetail }) => {
       </div>
     </>,
     document.getElementById('movie-detail-modal')
-  )
-}
+  );
+};
 
-export default MovieDetailModal
+export default MovieDetailModal;

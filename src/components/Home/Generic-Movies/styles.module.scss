@@ -10,13 +10,9 @@
   );
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
-  &:not(:first-child) {
-    display: none;
-  }
 }
 
-.PMwrapper {
+.sectionWrapper {
   position: relative;
   padding: 10px 40px 10px 40px;
   background: transparent;

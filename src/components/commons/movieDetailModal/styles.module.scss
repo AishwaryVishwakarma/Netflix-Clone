@@ -4,11 +4,9 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 11;
 }
 
@@ -23,44 +21,35 @@
   flex-direction: column;
   gap: 15px;
   width: 900px;
-  height: -webkit-fill-available;
+  height: 100%;
   border-radius: 10px;
-  box-shadow: 1px 3px 10px 0px #787878;
   background: var(--bg-dark);
-  animation-name: slide-up;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  overflow-y: scroll;
+  overflow: auto;
 
   img {
     width: 100%;
-    height: 70%;
+    height: 60%;
     object-fit: cover;
   }
 
   .viewOptions {
-    position: fixed;
-    z-index: 13;
+    position: absolute;
     font-size: 25px;
     justify-content: center;
-    top: 330px;
+    top: 50%;
     left: 60px;
     font-family: Ubuntu;
     display: flex;
-    gap: 15px;
+    gap: 25px;
 
     .playButton {
       padding: 5px 40px 5px 25px;
       background: white;
-
-      .playIcon {
-        position: relative;
-        top: 4px;
-        z-index: 14;
-        font-size: 25px;
-      }
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 5px;
 
       &:hover {
         background: #f6f0f0;
@@ -72,8 +61,7 @@
       display: flex;
       gap: 15px;
       font-size: 45px;
-      top: 30px;
-      right: 10px;
+      cursor: pointer;
 
       * {
         border: 1.5px solid #949494;
@@ -94,8 +82,7 @@
   }
 
   .closeButton {
-    position: fixed;
-    z-index: 13;
+    position: absolute;
     font-size: 30px;
     top: 10px;
     right: 10px;
@@ -106,20 +93,14 @@
     background: #1c1c1c;
     opacity: 0.85;
     transition: outline 0.2s ease-in-out;
+    cursor: pointer;
+
     &:hover {
       outline: 3.5px solid #ffffff;
     }
   }
 }
 
-.blurContainer {
-  height: 50px;
-  margin-top: 435px;
-  position: absolute;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(20, 20, 20, 0), rgb(20, 20, 20));
-  backdrop-filter: blur(4px);
-}
 .overviewContainer {
   padding: 20px 40px;
   display: flex;
@@ -167,7 +148,6 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 0%;
     color: white;
     padding: 0px 0px 0px 20px;
 
@@ -182,7 +162,7 @@
       }
       .genres {
         display: flex;
-        align-items: center;
+        flex-wrap: wrap;
         gap: 10px;
         line-height: 10px;
         max-height: 42px;
@@ -196,6 +176,7 @@
     }
   }
 }
+
 ::-webkit-scrollbar {
   display: none;
 }

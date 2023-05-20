@@ -4,6 +4,14 @@
   background: transparent;
   flex-shrink: 0;
 
+  .imageSekeleton {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+    background: white;
+  }
+
   &:hover {
     .movieCardWrapper {
       width: 120%;

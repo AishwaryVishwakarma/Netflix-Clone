@@ -1,42 +1,37 @@
-import React from 'react'
-import axios from 'axios'
-import styles from './styles.module.scss'
-import MovieCard from '../../commons/Movie-Card/MovieCard'
-import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
+import React from 'react';
+import axios from 'axios';
+import styles from './styles.module.scss';
+import MovieCard from '../../commons/Movie-Card/MovieCard';
+import {MdNavigateBefore, MdNavigateNext} from 'react-icons/md';
 
-const API_KEY = '9c3fd4dd152d57af68bd8d3ebd55fce0'
+const API_KEY = '9c3fd4dd152d57af68bd8d3ebd55fce0';
 
-const GenericMovies = ({ movieName, query }) => {
-  const [movies, setMovies] = React.useState([])
-  let cardsSectionRef = React.useRef()
+const GenericMovies = ({movieName, query}) => {
+  const [movies, setMovies] = React.useState([]);
+  let cardsSectionRef = React.useRef();
 
   const scroll = (scrollOffset) => {
     if (cardsSectionRef.current) {
-      cardsSectionRef.current.scrollLeft += scrollOffset
+      cardsSectionRef.current.scrollLeft += scrollOffset;
     }
-  }
-  query == 'search'
-    ? React.useEffect(() => {
-        axios
-          .get(
-            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}`
-          )
-          .then((res) => setMovies(res.data.results))
-          .catch((err) => console.log(err))
-      }, [])
-    : React.useEffect(() => {
-        axios
-          .get(
-            `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
-          )
-          .then((res) => setMovies(res.data.results))
-          .catch((err) => console.log(err))
-      }, [])
+  };
+
+  const URL =
+    query === 'search'
+      ? `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}`
+      : `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`;
+
+  React.useEffect(() => {
+    axios
+      .get(URL)
+      .then((res) => setMovies(res.data.results))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
-      <div className={styles.blurContainer}></div>
-      <div className={styles.PMwrapper}>
+      <div className={styles.blurContainer} />
+      <div className={styles.sectionWrapper}>
         <div className={styles.heading}>
           {query == 'search' ? `${movieName} Movies` : 'Popular Today'}
         </div>
@@ -61,7 +56,7 @@ const GenericMovies = ({ movieName, query }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default GenericMovies
+export default GenericMovies;

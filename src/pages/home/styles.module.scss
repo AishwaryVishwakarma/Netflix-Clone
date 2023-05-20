@@ -13,23 +13,21 @@
   z-index: 2;
   font-size: 25px;
   justify-content: center;
-  top: 330px;
-  left: 60px;
+  top: 40%;
+  left: 40px;
   font-family: Ubuntu;
   display: flex;
   gap: 15px;
 
   .playButton {
-    padding: 5px 40px 5px 25px;
+    padding: 10px 40px;
     background: white;
-    border-radius: 5%;
-
-    .playIcon {
-      position: relative;
-      top: 4px;
-      z-index: 14;
-      font-size: 25px;
-    }
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    gap: 5px;
 
     &:hover {
       background: #f6f0f0;
@@ -39,14 +37,13 @@
   .moreInfo {
     background: #6b6e81;
     color: white;
-    padding: 5px 25px 5px 15px;
-    border-radius: 5%;
-    .infoIcon {
-      position: relative;
-      top: 4px;
-      z-index: 14;
-      font-size: 25px;
-    }
+    padding: 10px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+    cursor: pointer;
 
     &:hover {
       background: #888585;
