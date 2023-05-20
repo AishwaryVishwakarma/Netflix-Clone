@@ -29,6 +29,7 @@ const MovieCard = ({movieData}) => {
       <div className={styles.bgContainer}>
         <div className={styles.movieCardWrapper}>
           <img
+            loading='lazy'
             src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
           />
           <div className={styles.detailsContainer}>
