@@ -58,11 +58,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.navbar} ${scrollAmount > 10 ? styles.bgDark : ""}`}
+      className={`${styles.navbar} ${scrollAmount > 10 ? styles.bgDark : ''}`}
     >
       <img
-        src="https://i.postimg.cc/MTkxkpnT/Logonetflix.png"
-        alt=""
+        src='https://i.postimg.cc/MTkxkpnT/Logonetflix.png'
+        alt=''
         className={styles.logo}
       />
       <ul>
@@ -75,14 +75,18 @@ const Navbar = () => {
         <p>Children</p>
         <FaRegBell className={styles.bellIcon} />
         <div className={styles.profileWrapper}>
-          <img src="https://i.postimg.cc/yYNvX4dG/red.jpg" alt="" />
+          <img src='https://i.postimg.cc/yYNvX4dG/red.jpg' alt='' />
           <AiFillCaretDown className={styles.caret} />
           <div className={styles.dropdownWrapper}>
-            <div className={`${styles.profileDropdown} ${scrollAmount > 50 ? styles.lowOpacity : ""}`}>
+            <div
+              className={`${styles.profileDropdown} ${
+                scrollAmount > 50 ? styles.lowOpacity : ''
+              }`}
+            >
               <div className={styles.itemsContainer}>
                 {DUMMY_PROFILES.map((profile, idx) => (
                   <div key={idx} className={styles.profiles}>
-                    <img src={profile.url} alt="" />
+                    <img src={profile.url} alt='' />
                     <p>{profile.name}</p>
                   </div>
                 ))}
