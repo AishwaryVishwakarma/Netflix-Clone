@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './styles.module.scss'
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import React from 'react';
+import styles from './styles.module.scss';
+import {FaFacebookF, FaInstagram, FaTwitter, FaYoutube} from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -33,14 +33,12 @@ const Footer = () => {
           <p>Contact Us</p>
         </div>
       </div>
-      <div className={styles.cta}>
-        Service Code
-      </div>
+      <div className={styles.cta}>Service Code</div>
       <div className={styles.trademark}>
-        @ 2023 , Dipayan Chakraborty & Aishwary Vishwakarma Inc.
+        @ 2023 , Aishwary Vishwakarma & Dipayan ChakrobortyInc.
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
